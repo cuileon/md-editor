@@ -15,9 +15,7 @@
                 mode: 'markdown',
             },
 			buttons: [
-                { name: "mainHeader", className: "fa fa-header", callback: function(e) {
-                    e.insertAround('**', '**');
-                }},
+                { name: "mainHeader", className: "fa fa-header"},
                 { name: "subHeader", className: "fa fa-header fa-sm"},
                 { name: "bold", className: "fa fa-bold"},
                 { name: "italicize", className: "fa fa-italic" },
