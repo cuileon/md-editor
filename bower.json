@@ -1,0 +1,14 @@
+{
+  "name": "md-editor",
+  "description": "基于 CodeMirror 的超好用 markdown 编辑器",
+  "main": "md-editor.js",
+  "license": "ISC",
+  "homepage": "https://github.com/cuileon/md-editor",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

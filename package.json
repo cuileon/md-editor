@@ -1,0 +1,22 @@
+{
+  "name": "md-editor",
+  "version": "1.0.0",
+  "description": "基于 CodeMirror 的超好用 markdown 编辑器",
+  "main": "md-editor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuileon/md-editor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cuileon/md-editor/issues"
+  },
+  "homepage": "https://github.com/cuileon/md-editor#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}
