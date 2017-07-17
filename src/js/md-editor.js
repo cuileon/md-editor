@@ -93,17 +93,30 @@
                     name: "preview", 
                     className: "fa fa-search",
                     action: function() {
+                        if ($(".md-editor-preview").length > 0) { 
+                            $('.CodeMirror-code').show();
+                            $(".md-editor-toolbar li a").removeAttr("disabled").css('cursor', 'pointer');
+                            $('.md-editor-preview').remove();
+                        } else {
+                            $('.CodeMirror-code').hide();
+                            $(".md-editor-toolbar li a").attr("disabled","true").css('cursor', 'default');
+                            $('<div/>').addClass('md-editor-preview').html(marked(this.cm.getValue())).insertAfter($('.CodeMirror-code'));
+                        }
                     }
                 },
                 {
                     name: "fullScreen", 
                     className: "fa fa-expand", 
                     action: function() {
-                        var el = this.cm.getWrapperElement().parentNode;
-                        if($(el).hasClass('fullscreen')) {
-                            $(el).removeClass('fullscreen');
+                        var el = this.cm.getWrapperElement();
+                        if($(el.parentNode).hasClass('fullscreen')) {
+                            $('.fullScreen a').removeClass('fa-compress').addClass('fa-expand');
+                            $(el.parentNode).removeClass('fullscreen');
+                            $(el).height('300');
                         } else {
-                            $(el).addClass('fullscreen');
+                            $(el).height('100%');
+                            $('.fullScreen a').removeClass('fa-expand').addClass('fa-compress');
+                            $(el.parentNode).addClass('fullscreen');
                         }
                     }
                 }

@@ -62,3 +62,6 @@
     left: 0;
     z-index: 99999;
 }
+.md-editor-preview {
+    z-index: 99999999;
+}
