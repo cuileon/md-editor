@@ -5,7 +5,6 @@
 		this.defaults = {
             debug: false,
 			codeMirror: {
-                theme: 'mirrormark',
                 tabSize: '4',
                 indentWithTabs: true,
                 lineWrapping: true,
@@ -19,19 +18,21 @@
                     name: "mainHeader", 
                     className: "fa fa-header", 
                     action: function() {
-                        this.insertAround('**', '**');
+                        this.insertBefore('## ', 3);
                     }
                 },
                 {
                     name: "subHeader", 
                     className: "fa fa-header", 
                     action: function() {
+                        this.insertBefore('### ', 4);
                     }
                 },
                 {
                     name: "bold", 
                     className: "fa fa-bold",
                     action: function() {
+                        this.insertAround('**', '**')
                     }
                 },
                 {
@@ -52,31 +53,40 @@
                     name: "link", 
                     className: "fa fa-link",
                     action: function() {
+                        this.insertAround('[', '](http://)');
                     }
                 },
                 { 
                     name: "image", 
                     className: "fa fa-image",
                     action: function() {
+                        this.insertBefore('![](http://)', 2);
                     }
                 },
                 { 
                     name: "unorderedList", 
                     className: "fa fa-list",
                     action: function() {
+                        this.insertBefore('* ', 2);
                     }
+                    
                 },
                 { 
                     name: "orderedList", 
                     className: "fa fa-list-ol",
                     action: function() {
+                        this.insertBefore('1. ', 3);
                     }
                 },
                 { 
                     name: "code", 
                     className: "fa fa-code",
                     action: function() {
-                        this.insertAround('```\r\n', '\r\n```');
+                        if(this.cm.getDoc().getSelection().indexOf('\n') > 0) {
+                            this.insertAround('```\r\n', '\r\n```');
+                        } else {
+                            this.insertAround('`', '`');
+                        }
                     }
                 },
                 { 
@@ -89,6 +99,12 @@
                     name: "fullScreen", 
                     className: "fa fa-expand", 
                     action: function() {
+                        var el = this.cm.getWrapperElement().parentNode;
+                        if($(el).hasClass('fullscreen')) {
+                            $(el).removeClass('fullscreen');
+                        } else {
+                            $(el).addClass('fullscreen');
+                        }
                     }
                 }
 			],
@@ -108,7 +124,7 @@
             var editor = this;
             var cm = editor.cm;
 			var cmWrapper = cm.getWrapperElement();
-			var toolbar = $('<ul/>').addClass('mirrormark-toolbar').insertBefore($(cmWrapper));
+			var toolbar = $('<ul/>').addClass('md-editor-toolbar').insertBefore($(cmWrapper));
 			this.options.buttons.map(function(button) {
                 var item = $('<li/>').addClass(button.name),
                     anchor = $('<a/>').addClass(button.className);
