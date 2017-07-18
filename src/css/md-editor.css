@@ -49,8 +49,12 @@
 	width: 40px;
     text-decoration: none;
 }
+.md-editor-toolbar li a.disabled {
+    cursor: default;
+    color: #ccc;
+}
 
-.md-editor-toolbar li:hover a {
+.md-editor-toolbar li:hover a:not(.disabled) {
 	color: #000;
 }
 

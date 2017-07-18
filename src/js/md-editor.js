@@ -95,11 +95,11 @@
                     action: function() {
                         if ($(".md-editor-preview").length > 0) { 
                             $('.CodeMirror-code').show();
-                            $(".md-editor-toolbar li a").removeAttr("disabled").css('cursor', 'pointer');
+                            $(".md-editor-toolbar li a").removeClass("disabled");
                             $('.md-editor-preview').remove();
                         } else {
                             $('.CodeMirror-code').hide();
-                            $(".md-editor-toolbar li a").attr("disabled","true").css('cursor', 'default');
+                            $(".md-editor-toolbar li:not(.preview,.fullScreen) a").addClass("disabled");
                             $('<div/>').addClass('md-editor-preview').html(marked(this.cm.getValue())).insertAfter($('.CodeMirror-code'));
                         }
                     }
@@ -141,13 +141,13 @@
 			this.options.buttons.map(function(button) {
                 var item = $('<li/>').addClass(button.name),
                     anchor = $('<a/>').addClass(button.className);
-                if(button.action) {
-                    anchor.appendTo(item).click(function(e) {
+                anchor.appendTo(item).click(function(e) {
+                    if(button.action && !$(this).hasClass('disabled')) {
                         cm.focus();
                         button.action.call(editor);
-                    });
-                    toolbar.append(item);
-                }
+                    }
+                });
+                toolbar.append(item);
 			});
 		},
         insert: function insert(insertion) {
