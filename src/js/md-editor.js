@@ -165,7 +165,7 @@
 				doc.replaceSelection(start + selection + end);
 			} else {
 				doc.replaceRange(start + end, { line: cursor.line, ch: cursor.ch });
-				doc.setCursor({ line: cursor.line, ch: cursor.ch + start.length })
+				doc.setCursor({ line: cursor.line, ch: cursor.ch + start.length });
 			}
 		},
 		insertBefore: function(insertion, cursorOffset) {
@@ -185,7 +185,7 @@
 				});
 			} else {
 				doc.replaceRange(insertion, { line: cursor.line, ch: 0 });
-				doc.setCursor({ line: cursor.line, ch: cursorOffset || 0 })
+				doc.setCursor({ line: cursor.line, ch: cursorOffset || 0 });
 			}
 		}
 	};
