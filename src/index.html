@@ -55,7 +55,16 @@ We have bullets:
 <script src="./js/md-editor.js"></script>
 
 <script>
-    $('#md-editor').mdEditor();
+    $('#md-editor').mdEditor({
+        buttons: {
+            code: {
+                action: function () {
+                    alert('a');
+                }
+            }
+        },
+        disabledButtons: ['code']
+    });
 </script>
 </body>
 </html>

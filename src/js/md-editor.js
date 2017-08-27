@@ -18,57 +18,57 @@
                 },
                 mode: 'markdown',
             },
-            buttons: [
-                {
+            buttons: {
+                mainHeader: {
                     name: "mainHeader",
                     className: "fa fa-header",
                     action: function () {
                         this.insertBefore('## ', 3);
                     }
                 },
-                {
+                subHeader: {
                     name: "subHeader",
                     className: "fa fa-header",
                     action: function () {
                         this.insertBefore('### ', 4);
                     }
                 },
-                {
+                bold: {
                     name: "bold",
                     className: "fa fa-bold",
                     action: function () {
                         this.insertAround('**', '**')
                     }
                 },
-                {
+                italicize: {
                     name: "italicize",
                     className: "fa fa-italic",
                     action: function () {
                         this.insertAround('*', '*');
                     }
                 },
-                {
+                blockquote: {
                     name: "blockquote",
                     className: "fa fa-quote-left",
                     action: function () {
                         this.insertBefore('> ', 2);
                     }
                 },
-                {
+                link: {
                     name: "link",
                     className: "fa fa-link",
                     action: function () {
                         this.insertAround('[', '](http://)');
                     }
                 },
-                {
+                image: {
                     name: "image",
                     className: "fa fa-image",
                     action: function () {
                         this.insertBefore('![](http://)', 2);
                     }
                 },
-                {
+                unorderedList: {
                     name: "unorderedList",
                     className: "fa fa-list",
                     action: function () {
@@ -76,14 +76,14 @@
                     }
 
                 },
-                {
+                orderedList: {
                     name: "orderedList",
                     className: "fa fa-list-ol",
                     action: function () {
                         this.insertBefore('1. ', 3);
                     }
                 },
-                {
+                code: {
                     name: "code",
                     className: "fa fa-code",
                     action: function () {
@@ -94,7 +94,7 @@
                         }
                     }
                 },
-                {
+                preview: {
                     name: "preview",
                     className: "fa fa-search",
                     action: function () {
@@ -109,7 +109,7 @@
                         }
                     }
                 },
-                {
+                fullScreen: {
                     name: "fullScreen",
                     className: "fa fa-expand",
                     action: function () {
@@ -125,11 +125,10 @@
                         }
                     }
                 }
-            ],
-            additionalButtons: [],
+            },
             disabledButtons: []
         };
-        this.options = $.extend({}, this.defaults, opt);
+        this.options = $.extend(true, {}, this.defaults, opt);
     };
 
     MarkdownEditor.prototype = {
@@ -145,8 +144,11 @@
             var editor = this;
             var cm = editor.cm;
             var toolbar = $('<ul/>').addClass('md-editor-toolbar');
-            this.options.buttons.map(function (button) {
-                var item = $('<li/>').addClass(button.name),
+            jQuery.each(this.options.buttons, function(key, button) {
+                if(jQuery.inArray(key, editor.options.disabledButtons) != -1) {
+                    return true;
+                }
+                var item = $('<li/>').addClass(key),
                     anchor = $('<a/>').addClass(button.className);
                 anchor.appendTo(item).click(function () {
                     if (button.action && !$(this).hasClass('disabled')) {
