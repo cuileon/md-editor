@@ -8,19 +8,17 @@
     font-weight: bold;
 }
 
-.cm-header-2 {
+.cm-header-3 {
     font: 18px Menlo, Consolas, Monaco, 'Andale Mono', monospace;
     font-weight: bold;
 }
 
-.mainHeader a:after {
-    content: "1";
-    font: 12px Menlo, Consolas, Monaco, 'Andale Mono', monospace;
+.cm-comment {
+    font: 14px "Courier New", Courier, monospace;
 }
 
-.subHeader a:after {
-    content: "2";
-    font: 12px Menlo, Consolas, Monaco, 'Andale Mono', monospace;
+.md-editor {
+    border: #ddd solid 1px;
 }
 
 .md-editor-toolbar {
@@ -50,6 +48,10 @@
     text-align: center;
     width: 40px;
     text-decoration: none;
+}
+
+.md-editor-toolbar li.subHeader a  {
+    font-size: 14px;
 }
 
 .md-editor-toolbar li a.disabled {
