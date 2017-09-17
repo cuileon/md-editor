@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Markdown Editor based on CodeMirror</title>
+
+    <!-- Bootstrap, font-awesome, CodeMirror -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/codemirror/5.27.4/codemirror.min.css" rel="stylesheet">
+
+    <!-- md-editor and demo CSS -->
+    <link href="./css/md-editor.css" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Markdown Editor</h1>
+        <h2>Markdown Editor based on CodeMirror</h2>
+        <p>Simple, powerful, extensible markdown editor</p>
+    </div>
+    <div class="editor">
+<textarea id="md-editor">
+# This is a main heading
+## This is a sub heading
+### This is a sub sub heading
+
+This is a normal Paragraph for bald headed people with no beards.
+
+**This text is bold**
+*Italicized* for you Italians
+
+> and this is a Blockquote
+
+We have lists:
+1. Here
+2. Here
+3. and Here
+
+We have bullets: 
+* Pew
+* Pew
+* and Pew!
+
+</textarea>
+    </div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/codemirror/5.27.4/codemirror.min.js"></script>
+<script src="https://cdn.bootcss.com/codemirror/5.27.4/mode/markdown/markdown.min.js"></script>
+<script src="https://cdn.bootcss.com/marked/0.3.6/marked.min.js"></script>
+<script src="./js/md-editor.js"></script>
+
+<script>
+    $('#md-editor').mdEditor({
+        buttons: {
+            code: {
+                action: function () {
+                    alert('a');
+                }
+            }
+        },
+        disabledButtons: ['code']
+    });
+</script>
+</body>
+</html>
