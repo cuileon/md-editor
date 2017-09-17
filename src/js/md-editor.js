@@ -99,13 +99,13 @@
                     className: "fa fa-search",
                     action: function () {
                         if ($(".md-editor-preview").length > 0) {
-                            $('.CodeMirror-code').show();
+                            $('.CodeMirror').show();
                             $(".md-editor-toolbar li a").removeClass("disabled");
                             $('.md-editor-preview').remove();
                         } else {
-                            $('.CodeMirror-code').hide();
                             $(".md-editor-toolbar li:not(.preview,.fullScreen) a").addClass("disabled");
-                            $('<div/>').addClass('md-editor-preview').html(marked(this.cm.getValue())).insertAfter($('.CodeMirror-code'));
+                            $('<div/>').height($('.CodeMirror').height()).addClass('md-editor-preview').html(marked(this.cm.getValue())).insertBefore($('.CodeMirror'));
+                            $('.CodeMirror').hide();
                         }
                     }
                 },
