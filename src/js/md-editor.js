@@ -109,6 +109,13 @@
                         }
                     }
                 },
+                info: {
+                    name: "info",
+                    className: "fa fa-info-circle",
+                    action: function() {
+                        window.open("https://cuileon.github.io/md-editor/");
+                    }
+                }
                 fullScreen: {
                     name: "fullScreen",
                     className: "fa fa-expand",
