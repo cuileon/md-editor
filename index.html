@@ -10,7 +10,7 @@
     <link href="https://cdn.bootcss.com/codemirror/5.27.4/codemirror.min.css" rel="stylesheet">
 
     <!-- md-editor and demo CSS -->
-    <link href="./css/md-editor.css" rel="stylesheet"/>
+    <link href="src/css/md-editor.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -52,19 +52,10 @@ We have bullets:
 <script src="https://cdn.bootcss.com/codemirror/5.27.4/codemirror.min.js"></script>
 <script src="https://cdn.bootcss.com/codemirror/5.27.4/mode/markdown/markdown.min.js"></script>
 <script src="https://cdn.bootcss.com/marked/0.3.6/marked.min.js"></script>
-<script src="./js/md-editor.js"></script>
+<script src="src/js/md-editor.js"></script>
 
 <script>
-    $('#md-editor').mdEditor({
-        buttons: {
-            code: {
-                action: function () {
-                    alert('a');
-                }
-            }
-        },
-        disabledButtons: ['code']
-    });
+    $('#md-editor').mdEditor();
 </script>
 </body>
 </html>
