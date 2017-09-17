@@ -104,7 +104,7 @@
                             $('.md-editor-preview').remove();
                         } else {
                             $(".md-editor-toolbar li:not(.preview,.fullScreen) a").addClass("disabled");
-                            $('<div/>').height($('.CodeMirror').height()).addClass('md-editor-preview').html(marked(this.cm.getValue())).insertBefore($('.CodeMirror'));
+                            $('<div/>').css({height: $('.CodeMirror').height(), overflow: 'auto'}).addClass('md-editor-preview').html(marked(this.cm.getValue())).insertBefore($('.CodeMirror'));
                             $('.CodeMirror').hide();
                         }
                     }
