@@ -6,6 +6,7 @@
             debug: false,
             codeMirror: {
                 lineWrapping: true,
+                indentUnit: 4,
                 extraKeys: {
                     Enter: 'newlineAndIndentContinueMarkdownList',
                     Tab: function(cm) {
@@ -16,7 +17,9 @@
                         }
                     }
                 },
-                mode: 'markdown',
+                mode: 'gfm',
+                lineNumbers: true,
+                matchBrackets: true,
             },
             buttons: {
                 mainHeader: {
