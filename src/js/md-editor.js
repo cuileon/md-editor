@@ -5,7 +5,10 @@
         this.defaults = {
             debug: false,
             codeMirror: {
+                mode: 'gfm',
                 lineWrapping: true,
+                lineNumbers: true,
+                matchBrackets: true,
                 indentUnit: 4,
                 extraKeys: {
                     Enter: 'newlineAndIndentContinueMarkdownList',
@@ -15,11 +18,9 @@
                         } else {
                             cm.replaceSelection(cm.getOption("indentWithTabs") ? "\t" : Array(cm.getOption("indentUnit") + 1).join(" "), "end", "+input");
                         }
-                    }
+                    },
+                    'Shift-Tab': "indentLess"
                 },
-                mode: 'gfm',
-                lineNumbers: true,
-                matchBrackets: true,
             },
             buttons: {
                 mainHeader: {
