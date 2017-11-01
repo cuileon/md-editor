@@ -7,7 +7,6 @@
             codeMirror: {
                 mode: 'gfm',
                 lineWrapping: true,
-                lineNumbers: true,
                 matchBrackets: true,
                 indentUnit: 4,
                 extraKeys: {
