@@ -1,20 +1,20 @@
 .cm-header-1 {
-    font: 28px Menlo, Consolas, Monaco, 'Andale Mono', monospace;
+    font: 28px;
     font-weight: bold;
 }
 
 .cm-header-2 {
-    font: 22px Menlo, Consolas, Monaco, 'Andale Mono', monospace;
+    font: 22px;
     font-weight: bold;
 }
 
 .cm-header-3 {
-    font: 18px Menlo, Consolas, Monaco, 'Andale Mono', monospace;
+    font: 18px;
     font-weight: bold;
 }
 
 .cm-comment {
-    font: 14px "Courier New", Courier, monospace;
+    font: 14px;
 }
 
 .md-editor {
