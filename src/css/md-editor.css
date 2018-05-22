@@ -1,20 +1,20 @@
 .cm-header-1 {
-    font: 28px;
+    font-size: 1.875rem;
     font-weight: bold;
 }
 
 .cm-header-2 {
-    font: 22px;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .cm-header-3 {
-    font: 18px;
+    font-size: 1.25rem;
     font-weight: bold;
 }
 
 .cm-comment {
-    font: 14px;
+    font-size: .875rem;
 }
 
 .md-editor {
@@ -43,15 +43,19 @@
     color: #666;
     cursor: pointer;
     display: block;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 40px;
     text-align: center;
     width: 40px;
     text-decoration: none;
 }
 
+.md-editor-toolbar .blockquote {
+    margin-bottom: 0;
+}
+
 .md-editor-toolbar li.subHeader a  {
-    font-size: 14px;
+    font-size: .875rem;
 }
 
 .md-editor-toolbar li a.disabled {

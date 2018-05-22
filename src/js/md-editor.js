@@ -24,14 +24,14 @@
             buttons: {
                 mainHeader: {
                     name: "mainHeader",
-                    className: "fa fa-header",
+                    className: "fa fa-heading",
                     action: function () {
                         this.insertBefore('## ', 3);
                     }
                 },
                 subHeader: {
                     name: "subHeader",
-                    className: "fa fa-header",
+                    className: "fa fa-heading",
                     action: function () {
                         this.insertBefore('### ', 4);
                     }
@@ -159,7 +159,7 @@
                     return true;
                 }
                 var item = $('<li/>').addClass(key),
-                    anchor = $('<a/>').addClass(button.className);
+                    anchor = $('<a/>').append($('<i/>').addClass(button.className));
                 anchor.appendTo(item).click(function () {
                     if (button.action && !$(this).hasClass('disabled')) {
                         cm.focus();
