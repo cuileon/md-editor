@@ -79,3 +79,7 @@
 .md-editor-preview {
     z-index: 99999999;
 }
+
+.CodeMirror {
+    font-size: 16px;
+}
