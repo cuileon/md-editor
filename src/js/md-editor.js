@@ -19,7 +19,7 @@
                         }
                     },
                     'Shift-Tab': "indentLess"
-                },
+                }
             },
             buttons: {
                 mainHeader: {
